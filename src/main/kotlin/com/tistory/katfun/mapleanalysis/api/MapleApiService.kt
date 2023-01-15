@@ -1,5 +1,6 @@
 package com.tistory.katfun.mapleanalysis.api
 
+import com.tistory.katfun.mapleanalysis.repository.dto.CubeHistoryResponseDto
 import org.springframework.http.MediaType
 import org.springframework.stereotype.Service
 import org.springframework.web.reactive.function.client.WebClient
@@ -13,8 +14,8 @@ class MapleApiService(
         "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJYLUFwcC1SYXRlLUxpbWl0IjoiNTAwOjEwIiwiYWNjb3VudF9pZCI6IjE4Mjg3OTEyMjkiLCJhdXRoX2lkIjoiMiIsImV4cCI6MTY4NzA4OTExMywiaWF0IjoxNjcxNTM3MTEzLCJuYmYiOjE2NzE1MzcxMTMsInNlcnZpY2VfaWQiOiI0MzAwMTEzOTciLCJ0b2tlbl90eXBlIjoiQWNjZXNzVG9rZW4ifQ.wWfsCejFLIOTpKknlZpMgg9ie_JHpNvEq5xEOwSWIt4"
     val url: String = "/v1/cube-use-results"
 
-    fun cubeResultApi(count: Int, date: String?, cursor: String?): String? {
-        val response: String? = cubeResultApiClient
+    fun cubeResultApi(count: Int, date: String?, cursor: String?): CubeHistoryResponseDto? {
+        return cubeResultApiClient
             .get()
             .uri {
                 it.path(url)
@@ -26,9 +27,7 @@ class MapleApiService(
             .accept(MediaType.APPLICATION_JSON)
             .header("authorization", yondoreuToken)
             .retrieve()
-            .bodyToMono(String::class.java).log()
+            .bodyToMono(CubeHistoryResponseDto::class.java).log()
             .block()
-
-        return response
     }
 }
