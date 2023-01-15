@@ -1,4 +1,4 @@
-package com.tistory.katfun.mapleanalysis
+package com.tistory.katfun.mapleanalysis.repository
 
 import com.tistory.katfun.mapleanalysis.domain.Users
 import org.springframework.data.repository.CrudRepository

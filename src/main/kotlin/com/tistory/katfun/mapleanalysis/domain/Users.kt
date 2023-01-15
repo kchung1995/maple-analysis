@@ -13,4 +13,3 @@ class Users (
     var editedAt: LocalDateTime = LocalDateTime.now(),
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY) var id: Long
 )
-
