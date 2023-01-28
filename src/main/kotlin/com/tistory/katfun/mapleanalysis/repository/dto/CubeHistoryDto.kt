@@ -16,10 +16,10 @@ data class CubeHistoryDto(
     val targetItem: String,
     val potentialOptionGrade: String,
     val additionalPotentialOptionGrade: String,
-    val BeforePotentialOptions: Array<CubeResultOptionDto>?,
-    val BeforeAdditionalPotentialOptions: Array<CubeResultOptionDto>?,
-    val AfterPotentialOptions: Array<CubeResultOptionDto>?,
-    val AfterAdditionalPotentialOptions: Array<CubeResultOptionDto>?
+    val beforePotentialOptions: List<CubeResultOptionDto> = emptyList(),
+    val beforeAdditionalPotentialOptions: List<CubeResultOptionDto> = emptyList(),
+    val afterPotentialOptions: List<CubeResultOptionDto> = emptyList(),
+    val afterAdditionalPotentialOptions: List<CubeResultOptionDto> = emptyList()
 ){
     companion object {
 

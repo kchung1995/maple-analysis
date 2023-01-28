@@ -6,7 +6,7 @@ import com.fasterxml.jackson.databind.annotation.JsonNaming
 @JsonNaming(PropertyNamingStrategies.SnakeCaseStrategy::class)
 data class CubeHistoryResponseDto(
     val count: Int,
-    val cubeHistories: Array<CubeHistoryDto>?,
+    val cubeHistories: List<CubeHistoryDto>,
     val nextCursor: String?,
 ) {
     companion object {
