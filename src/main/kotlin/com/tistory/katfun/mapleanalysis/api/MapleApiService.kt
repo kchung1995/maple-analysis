@@ -21,14 +21,14 @@ class MapleApiService(
             .uri {
                 it.path(url)
                     .queryParam("count", count)
-                    .queryParam("date", date)
-                    .queryParam("cursor", "")
+                    .queryParam("date", date ?: "")
+                    .queryParam("cursor", cursor ?: "")
                     .build()
             }
             .accept(MediaType.APPLICATION_JSON)
             .header("authorization", yondoreuToken)
             .retrieve()
             .bodyToMono(CubeHistoryResponseDto::class.java).log()
-            //.onErrorReturn(CubeHistoryResponseDto())
+        //.onErrorReturn(CubeHistoryResponseDto())
     }
 }

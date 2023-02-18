@@ -11,7 +11,11 @@ class MapleApiController(
 ) {
 
     @GetMapping("/cube")
-    fun cubeResultApi(@RequestParam count: Int, @RequestParam date: String?, @RequestParam cursor: String?): CubeHistoryResponseDto? {
+    fun cubeResultApi(
+        @RequestParam count: Int,
+        @RequestParam date: String?,
+        @RequestParam cursor: String?
+    ): CubeHistoryResponseDto? {
         return mapleApiService.cubeResultApi(count, date, cursor)
             .block()
     }
