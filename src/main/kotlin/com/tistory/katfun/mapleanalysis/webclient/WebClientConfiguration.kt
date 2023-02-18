@@ -8,7 +8,7 @@ import org.springframework.web.reactive.function.client.WebClient
 class WebClientConfiguration {
 
     @Bean
-    fun cubeResultApiClient(): WebClient = WebClient.builder()
+    fun maplestoryOpenApiClient(): WebClient = WebClient.builder()
         .baseUrl("https://public.api.nexon.com/openapi/maplestory")
         .build()
 }
